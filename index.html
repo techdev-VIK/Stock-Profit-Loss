@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexical Scope</title>
+    <title>Closures</title>
 </head>
+
 <body>
-    <h1>Lexical Scope</h1>
+    <h1> Closure </h1>
     <script>
-    function outermost(){
-        let num2=10
-            return function outside(){  
-             let num1 = 100 
-            //  return num1*num2;
-                return function inside(){    
-                    return num1/num2;
-                };    
+        function outside() {
+            let num1 = 100
+            return function inside() {
+                num1++;
+                return num1;
             };
         }
-    
-    let outside=outermost();
-    let inside=outside();
-    console.log(inside());
-    // console.log(outside());
-    
+
+        let inside = outside();
+        console.log(inside());
+        console.log(inside());
+        console.log(inside());
+        console.log(inside());
+        console.log(inside());
     </script>
+
 </body>
+
 </html>
