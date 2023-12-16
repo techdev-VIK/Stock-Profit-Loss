@@ -40,15 +40,15 @@ function calculateProfitOrLoss(arr) {
 
     if(arr[i][0] == "P"){
         sharePrice = num
-        console.log(sharePrice)
+        // console.log(sharePrice)
     }
     if(arr[i][0] == "Q"){
         shareQuantity = num
-        console.log(shareQuantity)
+        // console.log(shareQuantity)
     }
     if(arr[i][0] == "C"){
         change = num
-        console.log(change)
+        // console.log(change)
     }
 
     }
