@@ -8,25 +8,18 @@ const submit = document.querySelector("#submit")
 
  submit.addEventListener('click', (e) =>{
   e.preventDefault();
-  const UserSharePrice = parseInt(document.getElementById("sharePrice").value)
-console.log(UserSharePrice)
+const UserSharePrice = parseInt(document.getElementById("sharePrice").value)
+// console.log(UserSharePrice)
 const OwnedShares = parseInt(document.getElementById("OwnedShares").value)
-console.log(OwnedShares)
+// console.log(OwnedShares)
 const userChange = parseInt(document.getElementById("change").value)
-console.log(userChange)
+// console.log(userChange)
 
   const formData = [`Price Company ${UserSharePrice}`, `Quantity ${OwnedShares}`, `Change ${userChange}`]
   console.log(formData)
 
   output.innerText = calculateProfitOrLoss(formData)
 
-  if (profit < 0) {
-    output.style.color = 'red';
-} else if (profit > 0) {
-    output.style.color = 'green';
-} else {
-    output.style.color = 'black'; // Default color for zero profit
-}
  })
 
 //SharePrice - 100
@@ -38,16 +31,12 @@ console.log(userChange)
 
 
 
-// const array = ["Price googl 100", "Quantity 20", "Change -10"];
-// const array1 = ["Price appl 200", "Quantity 5", "Change  3"];
 function calculateProfitOrLoss(arr) {
     let sharePrice, shareQuantity, change;
     
     for (let i = 0; i < arr.length; i++) {
      const num = parseInt(arr[i].split(" ").slice(-1)[0]);
-    //   console.log(typeof num)
-    // const num = (preNum[i].substr(-1))
-    // console.log(num)
+    
 
     if(arr[i][0] == "P"){
         sharePrice = num
@@ -73,9 +62,18 @@ function calculateProfitOrLoss(arr) {
     let newPrice = (sharePrice+change)*shareQuantity;
     let profitOrLoss = newPrice-originalPrice;
     finalResult.push(profitOrLoss, newPrice);
+    if (profitOrLoss < 0) {
+        output.style.color = 'red';
+        output.style.backgroundColor = 'gray'
+    } else if (profitOrLoss > 0) {
+        output.style.color = 'green';
+    } else {
+        output.style.color = 'black'; // Default color for zero profit
+        output.style.backgroundColor = 'gray'
+    }
     message1 = "Your Net Income = " +finalResult[0] + " Dollars\r\n";
     message2 = "Your Current Fortune = " + finalResult[1] + " Dollars";
-    console.log(message1+ message2);
+    // console.log(message1+ message2);
   } else{
     return "Error! Please recheck your inputs";
   }
