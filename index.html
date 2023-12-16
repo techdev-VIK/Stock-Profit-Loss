@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Closures</title>
+    <link rel="stylesheet" href="index.css">
+    <title>Share Profit Calculator</title>
 </head>
+<body style="background-color: grey;">
+    <div class="container">
+        <form >
+            <div class="my-form">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" placeholder="John"/>
+            
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Wick"/>
 
-<body>
-    <h1> Closure </h1>
-    <script>
-        function outside() {
-            let num1 = 100
-            return function inside() {
-                num1++;
-                return num1;
-            };
-        }
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age"/>
 
-        let inside = outside();
-        console.log(inside());
-        console.log(inside());
-        console.log(inside());
-        console.log(inside());
-        console.log(inside());
-    </script>
+            </div>
 
+
+            <label for="Company">Company Name:</label>
+            <select id="Company" name="Company">
+                <option value="" selected>Select a Company</option>
+                <option value="Apple">Apple</option>
+                <option value="Google">Google</option>
+
+            </select><br>   
+            <label for="sharePrice">SharePrice:</label>
+            <input type="number" id="sharePrice" name = "sharePrice" placeholder="$100" required/><br>
+
+            <label for="OwnedShares">Owned Shares:</label>
+            <input type="number" id="OwnedShares" name="OwnedShares" placeholder="20" required/><br>
+
+            <label for="change">Change:</label>
+            <input type="number" id="change" name="change" placeholder="+4" required/><br>
+
+            <button id="submit">Submit</button>
+
+            <p id="output"></p>
+        </form>
+    </div>
+    <script src="app.js"></script>
 </body>
-
 </html>
